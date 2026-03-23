@@ -1,20 +1,30 @@
 import { MODULE_ID } from "./constants.js";
 
 export function modifyCanvasTokenBorder() {
-	function getRelationColor(token) {
+	function getDispositionColor(token) {
+		const colors = CONFIG.Canvas.dispositionColors;
+
+		if (!game.user.isGM && (token.controlled || token.actor?.isOwner))
+			return colors.CONTROLLED;
+		if (token.actor?.hasPlayerOwner) return colors.PARTY;
+
 		switch (token.document.disposition) {
 			case CONST.TOKEN_DISPOSITIONS.HOSTILE:
-				return 0xdb4f3f;
+				return colors.HOSTILE;
+			case CONST.TOKEN_DISPOSITIONS.NEUTRAL:
+				return colors.NEUTRAL;
 			case CONST.TOKEN_DISPOSITIONS.FRIENDLY:
-				return 0x3fdb7a;
+				return colors.FRIENDLY;
+			case CONST.TOKEN_DISPOSITIONS.SECRET:
+				return colors.SECRET;
 			default:
-				return 0x999999;
+				return colors.INACTIVE;
 		}
 	}
 
 	function createIndicator(token, color) {
 		const g = new PIXI.Graphics();
-		const computedColor = color ?? getRelationColor(token);
+		const computedColor = color ?? getDispositionColor(token);
 		const lineWidth = 2;
 
 		g.lineStyle(lineWidth, computedColor, 0.5);
@@ -25,12 +35,6 @@ export function modifyCanvasTokenBorder() {
 
 		token.addChild(g);
 
-		g._tickerFn = (delta) => {
-			g.rotation += 0.05 * delta;
-		};
-
-		PIXI.Ticker.shared.add(g._tickerFn);
-
 		return g;
 	}
 
@@ -38,7 +42,6 @@ export function modifyCanvasTokenBorder() {
 		const g = token[key];
 		if (!g) return;
 
-		PIXI.Ticker.shared.remove(g._tickerFn);
 		token.removeChild(g);
 		g.destroy();
 		token[key] = null;
