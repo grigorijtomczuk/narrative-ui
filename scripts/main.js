@@ -4,6 +4,7 @@ export function modifyCanvasTokenBorder() {
 	function getDispositionColor(token) {
 		const colors = CONFIG.Canvas.dispositionColors;
 
+		if (game.user.isGM && token.controlled) return colors.CONTROLLED;
 		if (!game.user.isGM && (token.controlled || token.actor?.isOwner))
 			return colors.CONTROLLED;
 		if (token.actor?.hasPlayerOwner) return colors.PARTY;
@@ -24,15 +25,22 @@ export function modifyCanvasTokenBorder() {
 
 	function createIndicator(token, color) {
 		const g = new PIXI.Graphics();
+		const s = canvas.dimensions.uiScale;
 		const computedColor = color ?? getDispositionColor(token);
-		const lineWidth = 2;
+		const lineWidth = 2 * s;
 
-		g.lineStyle(lineWidth, computedColor, 0.5);
+		g.lineStyle(lineWidth, computedColor);
 		g.drawCircle(0, 0, Math.max(token.w, token.h) / 2 + lineWidth / 2);
-
+		g.zIndex = -10;
 		g.x = token.w / 2;
 		g.y = token.h / 2;
+		token.addChild(g);
 
+		g.lineStyle(lineWidth, 0x000000);
+		g.drawCircle(0, 0, Math.max(token.w, token.h) / 2 + lineWidth);
+		g.zIndex = -10;
+		g.x = token.w / 2;
+		g.y = token.h / 2;
 		token.addChild(g);
 
 		return g;
@@ -51,29 +59,18 @@ export function modifyCanvasTokenBorder() {
 		token.border.visible = false;
 	}
 
-	function onControlToken(token, controlled) {
-		if (controlled) {
-			if (!token._controlIndicator) {
-				token._controlIndicator = createIndicator(token, 0x999999);
-			}
-		} else {
-			removeIndicator(token, "_controlIndicator");
-		}
-	}
-
-	function onHoverToken(token, hovered) {
-		if (hovered) {
-			if (!token._hoverIndicator) {
-				token._hoverIndicator = createIndicator(token);
-			}
-		} else {
-			removeIndicator(token, "_hoverIndicator");
+	function updateIndicator(token) {
+		removeIndicator(token, "_indicator");
+		if (token.hover) {
+			token._indicator = createIndicator(token);
+		} else if (token.controlled) {
+			token._indicator = createIndicator(token, 0x999999);
 		}
 	}
 
 	Hooks.on("refreshToken", onRefreshToken);
-	Hooks.on("controlToken", onControlToken);
-	Hooks.on("hoverToken", onHoverToken);
+	Hooks.on("controlToken", updateIndicator);
+	Hooks.on("hoverToken", updateIndicator);
 }
 
 export function modifyChatMessagesVisual() {
