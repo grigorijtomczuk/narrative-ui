@@ -1,0 +1,53 @@
+{
+	"id": "narrative-ui",
+	"title": "Narrative UI",
+	"description": "A neat UI theme for your favorite virtual tabletop.",
+	"version": "1.0.0",
+	"compatibility": {
+		"minimum": "13",
+		"verified": "13"
+	},
+	"relationships": {
+		"requires": [
+			{
+				"id": "lib-wrapper",
+				"type": "module"
+			}
+		],
+		"systems": [
+			{
+				"id": "dnd5e",
+				"type": "system"
+			}
+		]
+	},
+	"authors": [
+		{
+			"name": "grigorijtomczuk",
+			"email": "grigorijtomczuk@gmail.com",
+			"url": "https://grigorijtomczuk.ru",
+			"discord": "grigorijtomczuk"
+		}
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		},
+		{
+			"lang": "ru",
+			"name": "Russian",
+			"path": "lang/ru.json"
+		}
+	],
+	"esmodules": ["scripts/hooks.js"],
+	"styles": ["styles/module.css"],
+	"url": "",
+	"manifest": "",
+	"download": "",
+	"readme": "",
+	"changelog": "",
+	"license": "",
+	"bugs": ""
+}

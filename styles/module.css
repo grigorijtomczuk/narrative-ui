@@ -1,0 +1,124 @@
+#hotbar.offset:not(.lg, .min) {
+	--offset: 0 !important;
+}
+
+#chat-message::placeholder {
+	font-style: normal;
+}
+
+#chat-message:placeholder-shown:not(:focus) {
+	place-content: unset;
+	line-height: 48.8px;
+}
+
+#sidebar-content.expanded #chat-message:placeholder-shown:not(:focus) {
+	line-height: 88.8px;
+}
+
+/* Chat */
+
+#sidebar-content.expanded {
+	margin-left: -16px;
+}
+
+#sidebar-content #chat {
+	width: var(--sidebar-width);
+}
+
+.chat-sidebar:not(.sidebar-popout) {
+	background: var(--sidebar-background, var(--color-cool-5-90));
+}
+
+.chat-scroll:not(.overflowed) {
+	padding-left: 4px;
+}
+
+:is(.chat-popout, #chat-log, .chat-log) .message {
+	margin-left: 0;
+}
+
+.message-header {
+	align-items: center;
+	margin-top: -8px;
+	margin-right: -8px;
+	margin-left: -8px;
+	border: 1px solid var(--dnd5e-color-tan);
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	background:
+		url(/systems/dnd5e/ui/texture-gray1.webp) no-repeat top left,
+		var(--header-color);
+	background-blend-mode: overlay;
+	padding: 8px;
+	width: auto;
+	color: var(--header-text-color);
+}
+
+.message-sender {
+	flex: 1;
+	align-items: center;
+	margin-right: 2px;
+}
+
+.message-sender img {
+	background-color: var(--dnd5e-color-tan);
+}
+
+.message-sender .title,
+.message-sender .subtitle,
+.message-timestamp {
+	color: inherit;
+}
+
+.message-sender .title {
+	font-size: var(--font-size-14);
+	font-family: var(--dnd5e-font-roboto);
+}
+
+.message-sender .subtitle,
+.message-timestamp {
+	backdrop-filter: blur(4px);
+	border: 1px solid var(--dnd5e-color-tan);
+	border-radius: 3px;
+	background: color-mix(in srgb, var(--header-color-transparent) 85%, #fff);
+	padding: 0 4px;
+	width: fit-content;
+	height: 20px;
+	font-size: var(--font-size-11);
+	line-height: 20px;
+	font-family: var(--dnd5e-font-roboto);
+}
+
+.message-sender .subtitle:empty {
+	display: none;
+}
+
+.message-sender .name-stacked {
+	gap: 4px;
+}
+
+.message-metadata {
+	transform: none;
+	min-width: 7em;
+}
+
+.message-metadata .message-delete,
+.message-metadata .message-dismiss,
+.message-metadata .chat-control {
+	display: none;
+	gap: 0;
+}
+
+.message-timestamp {
+	flex-shrink: 0;
+}
+
+/* Context Menu */
+
+#context-menu:not(.dnd5e2) .context-item:first-child {
+	border-radius: 5px 5px 0 0;
+}
+
+#context-menu:not(.dnd5e2) .context-item:last-child {
+	border-radius: 0 0 5px 5px;
+}
