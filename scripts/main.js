@@ -29,18 +29,20 @@ export function modifyCanvasTokenBorder() {
 		const computedColor = color ?? getDispositionColor(token);
 		const lineWidth = 2 * s;
 
-		g.lineStyle(lineWidth, computedColor);
-		g.drawCircle(0, 0, Math.max(token.w, token.h) / 2 + lineWidth / 2);
+		const actualWidth = token.mesh.width;
+		const actualHeight = token.mesh.height;
+		const actualSize = Math.max(actualWidth, actualHeight);
+
 		g.zIndex = -10;
 		g.x = token.w / 2;
 		g.y = token.h / 2;
+
+		g.lineStyle(lineWidth, computedColor);
+		g.drawCircle(0, 0, actualSize / 2 + lineWidth / 2);
 		token.addChild(g);
 
 		g.lineStyle(lineWidth, 0x000000);
-		g.drawCircle(0, 0, Math.max(token.w, token.h) / 2 + lineWidth);
-		g.zIndex = -10;
-		g.x = token.w / 2;
-		g.y = token.h / 2;
+		g.drawCircle(0, 0, actualSize / 2 + lineWidth);
 		token.addChild(g);
 
 		return g;
