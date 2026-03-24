@@ -75,7 +75,8 @@
 .message-sender .subtitle,
 .message-timestamp {
 	backdrop-filter: blur(4px);
-	border: 1px solid var(--dnd5e-color-tan);
+	border: 1px solid
+		color-mix(in srgb, var(--header-color-transparent) 60%, #fff);
 	border-radius: 3px;
 	background: color-mix(in srgb, var(--header-color-transparent) 85%, #fff);
 	padding: 0 4px;

@@ -112,7 +112,7 @@ export function modifyChatMessagesVisual() {
 		const backgroundColor = message.flags?.[MODULE_ID]?.headerColor;
 		const textColor = getContrastColor(backgroundColor);
 		html.css("--header-color", backgroundColor);
-		html.css("--header-color-transparent", backgroundColor + "80");
+		html.css("--header-color-transparent", backgroundColor + "C0");
 		html.css("--header-text-color", textColor);
 	}
 
