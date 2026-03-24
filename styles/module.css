@@ -111,6 +111,16 @@
 	flex-shrink: 0;
 }
 
+#chat-notifications {
+	display: flex;
+	flex-direction: column;
+}
+
+#chat-notifications > .overflow {
+	flex: 1;
+	width: 100%;
+}
+
 /* Context Menu */
 
 #context-menu:not(.dnd5e2) .context-items > .context-item:first-child,
