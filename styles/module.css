@@ -1,7 +1,3 @@
-#hotbar.offset:not(.lg, .min) {
-	--offset: 0 !important;
-}
-
 #chat-message::placeholder {
 	font-style: normal;
 }
