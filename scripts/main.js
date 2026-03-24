@@ -25,24 +25,26 @@ export function modifyCanvasTokenBorder() {
 
 	function createIndicator(token, color) {
 		const g = new PIXI.Graphics();
-		const s = canvas.dimensions.uiScale;
 		const computedColor = color ?? getDispositionColor(token);
-		const lineWidth = 2 * s;
+		const lineWidth = 2 * canvas.dimensions.uiScale;
 
-		const actualWidth = token.mesh.width;
-		const actualHeight = token.mesh.height;
-		const actualSize = Math.max(actualWidth, actualHeight);
+		const tokenSize = Math.max(token.w, token.h);
+		const tokenScale = Math.max(
+			Math.abs(token.document.texture.scaleX),
+			Math.abs(token.document.texture.scaleY),
+		);
+		const tokenActualSize = tokenSize * tokenScale;
 
 		g.zIndex = -10;
 		g.x = token.w / 2;
 		g.y = token.h / 2;
 
 		g.lineStyle(lineWidth, computedColor);
-		g.drawCircle(0, 0, actualSize / 2 + lineWidth / 2);
+		g.drawCircle(0, 0, tokenActualSize / 2 + lineWidth / 2);
 		token.addChild(g);
 
 		g.lineStyle(lineWidth, 0x000000);
-		g.drawCircle(0, 0, actualSize / 2 + lineWidth);
+		g.drawCircle(0, 0, tokenActualSize / 2 + lineWidth);
 		token.addChild(g);
 
 		return g;
