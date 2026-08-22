@@ -43,6 +43,12 @@
 	],
 	"esmodules": ["scripts/hooks.js"],
 	"styles": ["styles/module.css"],
+	"flags": {
+		"hotReload": {
+			"extensions": ["css"],
+			"paths": ["styles"]
+		}
+	},
 	"url": "",
 	"manifest": "",
 	"download": "",
