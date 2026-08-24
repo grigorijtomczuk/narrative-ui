@@ -1,0 +1,27 @@
+/* *** Context menu list ***  */
+
+#context-menu:not(.dnd5e2) .context-items > .context-item:first-child,
+#context-menu:not(.dnd5e2)
+	.context-items
+	> .context-group:first-child
+	.context-item:first-child {
+	border-radius: 5px 5px 0 0;
+}
+
+#context-menu:not(.dnd5e2) .context-items > .context-item:last-child,
+#context-menu:not(.dnd5e2)
+	.context-items
+	> .context-group:last-child
+	.context-item:last-child {
+	border-radius: 0 0 5px 5px;
+}
+
+#context-menu:not(.dnd5e2) .context-items > .context-group:first-child {
+	margin-block-start: 0;
+}
+
+#context-menu:not(.dnd5e2) .context-items > .context-group:first-child::before {
+	display: none;
+}
+
+/* *** ***  */

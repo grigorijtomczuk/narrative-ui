@@ -102,7 +102,7 @@ export function modifyChatMessagesVisual() {
 		message.updateSource({
 			flags: {
 				[MODULE_ID]: {
-					headerColor: color,
+					headerColor: color.css,
 				},
 			},
 		});
