@@ -45,7 +45,9 @@
 	"styles": [
 		"styles/chat.css",
 		"styles/sidebar.css",
-		"styles/context-menu.css"
+		"styles/context-menu.css",
+		"styles/hotbar.css",
+		"styles/dnd5e.css"
 	],
 	"flags": {
 		"hotReload": {

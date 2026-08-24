@@ -1,6 +1,7 @@
 import {
 	disableContextMenuAnimation,
 	enableCloseSidebarOnButtonClick,
+	enableDialogButtonTextWrapping as enableDnd5eDialogButtonLabelWrapping,
 	modifyCanvasTokenBorder,
 	modifyChatMessagesVisual,
 } from "./main.js";
@@ -22,4 +23,5 @@ Hooks.once("ready", () => {
 
 	modifyCanvasTokenBorder();
 	enableCloseSidebarOnButtonClick();
+	enableDnd5eDialogButtonLabelWrapping();
 });

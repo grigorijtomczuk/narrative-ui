@@ -118,11 +118,13 @@ export function modifyChatMessagesVisual() {
 
 	Hooks.on("preCreateChatMessage", onPreCreateChatMessage);
 	Hooks.on("renderChatMessage", onRenderChatMessage);
-	Hooks.once("ready", () => {
-		const $chatLog = $(".chat-log");
-		$chatLog.removeClass("theme-light");
-		$chatLog.addClass("theme-dark");
-	});
+
+	// Chat with .theme-dark doesn't look right
+	// Hooks.once("ready", () => {
+	// 	const $chatLog = $(".chat-log");
+	// 	$chatLog.removeClass("theme-light");
+	// 	$chatLog.addClass("theme-dark");
+	// });
 }
 
 export function disableContextMenuAnimation() {
@@ -146,5 +148,39 @@ export function enableCloseSidebarOnButtonClick() {
 			event.stopPropagation();
 			foundry.ui.sidebar.collapse();
 		}
+	});
+}
+
+export function enableDialogButtonTextWrapping() {
+	const buttonSelector =
+		'nav.dialog-buttons[data-application-part="buttons"] > button';
+
+	Hooks.on("renderApplicationV2", (_application, element) => {
+		const $buttons = $(element)
+			.find(buttonSelector)
+			.addBack(buttonSelector);
+
+		$buttons
+			.filter(function () {
+				return $(this).children("i").length;
+			})
+			.each(function () {
+				$(this)
+					.contents()
+					.filter(function () {
+						return (
+							this.nodeType === Node.TEXT_NODE &&
+							this.textContent.trim()
+						);
+					})
+					.each(function () {
+						$(this).replaceWith(
+							$("<span>", {
+								class: MODULE_ID + "-button-label",
+								text: this.textContent.trim(),
+							}),
+						);
+					});
+			});
 	});
 }

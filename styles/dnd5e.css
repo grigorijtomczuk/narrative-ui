@@ -1,0 +1,30 @@
+/* *** DND5E applications *** */
+
+.dnd5e2 {
+	/* *** Generic dialog form button *** */
+
+	.dialog-buttons button {
+		gap: 8px;
+		padding-inline: 16px;
+		height: 36px;
+		line-height: 1;
+
+		span {
+			width: min-content;
+		}
+	}
+
+	/* *** *** */
+
+	/* *** Generic window *** */
+
+	.window-title {
+		inset-block-start: calc(var(--header-height) - 16px);
+		inset-inline: 48px;
+		font-size: var(--font-size-18);
+	}
+
+	/* *** *** */
+}
+
+/* *** *** */
