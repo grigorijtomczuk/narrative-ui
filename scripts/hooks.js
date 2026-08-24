@@ -1,14 +1,17 @@
 import {
+	configureModuleAssetStyles,
 	disableContextMenuAnimation,
 	enableCloseSidebarOnButtonClick,
 	enableDialogButtonTextWrapping as enableDnd5eDialogButtonLabelWrapping,
 	modifyCanvasTokenBorder,
 	modifyChatMessagesVisual,
+	replaceDnd5eD6Icon,
 } from "./main.js";
 
 import { MODULE_ID } from "./constants.js";
 
 Hooks.once("setup", () => {
+	configureModuleAssetStyles();
 	modifyChatMessagesVisual();
 	disableContextMenuAnimation();
 });
@@ -24,4 +27,5 @@ Hooks.once("ready", () => {
 	modifyCanvasTokenBorder();
 	enableCloseSidebarOnButtonClick();
 	enableDnd5eDialogButtonLabelWrapping();
+	replaceDnd5eD6Icon();
 });

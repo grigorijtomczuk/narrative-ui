@@ -1,5 +1,14 @@
 import { MODULE_ID } from "./constants.js";
 
+const D6_ICON_PATH = `modules/${MODULE_ID}/assets/dice/d6.svg`;
+
+export function configureModuleAssetStyles() {
+	document.documentElement.style.setProperty(
+		"--narrative-ui-d6-icon",
+		`url("${foundry.utils.getRoute(D6_ICON_PATH)}")`,
+	);
+}
+
 export function modifyCanvasTokenBorder() {
 	function getDispositionColor(token) {
 		const colors = CONFIG.Canvas.dispositionColors;
@@ -182,5 +191,12 @@ export function enableDialogButtonTextWrapping() {
 						);
 					});
 			});
+	});
+}
+
+export function replaceDnd5eD6Icon() {
+	const systemIcon = "systems/dnd5e/icons/svg/dice/d6.svg";
+	Hooks.on("renderRollConfigurationDialog", (_application, element) => {
+		$(element).find(`img[src="${systemIcon}"]`).attr("src", D6_ICON_PATH);
 	});
 }
