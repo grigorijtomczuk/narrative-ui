@@ -1,5 +1,6 @@
 import {
 	disableContextMenuAnimation,
+	enableCloseSidebarOnButtonClick,
 	modifyCanvasTokenBorder,
 	modifyChatMessagesVisual,
 } from "./main.js";
@@ -20,4 +21,5 @@ Hooks.once("ready", () => {
 	}
 
 	modifyCanvasTokenBorder();
+	enableCloseSidebarOnButtonClick();
 });

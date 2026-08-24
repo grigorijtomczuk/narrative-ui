@@ -135,3 +135,16 @@ export function disableContextMenuAnimation() {
 		"OVERRIDE",
 	);
 }
+
+export function enableCloseSidebarOnButtonClick() {
+	const $sidebarButtons = $(".ui-control.plain");
+	$sidebarButtons.on("click", function (event) {
+		if (
+			foundry.ui.sidebar.tabGroups["primary"] === $(this).data("tab") &&
+			foundry.ui.sidebar.expanded
+		) {
+			event.stopPropagation();
+			foundry.ui.sidebar.collapse();
+		}
+	});
+}
