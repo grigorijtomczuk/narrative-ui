@@ -116,7 +116,7 @@
 }
 
 .dice-tooltip .dice-rolls .roll.d6 {
-	background-image: var(--narrative-ui-d6-icon);
+	background-image: var(--narrative-ui-d6-grey-icon);
 }
 
 /* *** ***  */

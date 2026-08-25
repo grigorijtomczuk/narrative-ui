@@ -1,11 +1,16 @@
 import { MODULE_ID } from "./constants.js";
 
-const D6_ICON_PATH = `modules/${MODULE_ID}/assets/dice/d6.svg`;
+const D6_GREY_ICON_PATH = `modules/${MODULE_ID}/assets/dice/d6-grey.svg`;
+const D6_BLACK_OFFSET_ICON_PATH = `modules/${MODULE_ID}/assets/dice/d6-black-offset.svg`;
 
 export function configureModuleAssetStyles() {
 	document.documentElement.style.setProperty(
-		"--narrative-ui-d6-icon",
-		`url("${foundry.utils.getRoute(D6_ICON_PATH)}")`,
+		"--narrative-ui-d6-grey-icon",
+		`url("${foundry.utils.getRoute(D6_GREY_ICON_PATH)}")`,
+	);
+	document.documentElement.style.setProperty(
+		"--narrative-ui-d6-black-offset-icon",
+		`url("${foundry.utils.getRoute(D6_BLACK_OFFSET_ICON_PATH)}")`,
 	);
 }
 
@@ -197,6 +202,8 @@ export function enableDialogButtonTextWrapping() {
 export function replaceDnd5eD6Icon() {
 	const systemIcon = "systems/dnd5e/icons/svg/dice/d6.svg";
 	Hooks.on("renderRollConfigurationDialog", (_application, element) => {
-		$(element).find(`img[src="${systemIcon}"]`).attr("src", D6_ICON_PATH);
+		$(element)
+			.find(`img[src="${systemIcon}"]`)
+			.attr("src", D6_GREY_ICON_PATH);
 	});
 }

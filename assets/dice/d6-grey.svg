@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="a" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.195 52">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45.195 52">
   <g style="fill: var(--icon-fill, #aaa); touch-action: none;">
 	<polygon points="22.597 0 .599 12.7 22.597 25.402 44.597 12.7 22.597 0"/>
 	<polygon points=".001 13.896 0 39.299 21.999 52 21.999 26.597 .001 13.896"/>

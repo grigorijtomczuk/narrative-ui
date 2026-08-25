@@ -1,0 +1,48 @@
+/* *** Dice Tray calculator *** */
+
+.dice-tray {
+	.dice-tray__button {
+		&:not(:last-child, :hover) {
+			border-right-color: transparent;
+		}
+
+		& > .dice {
+			mask-position: center 3px !important;
+			background-color: var(--color-light-5);
+		}
+
+		&[data-formula="d6"] > .dice {
+			mask-image: var(--narrative-ui-d6-black-offset-icon) !important;
+			-webkit-mask-image: var(
+				--narrative-ui-d6-black-offset-icon
+			) !important;
+		}
+	}
+
+	.dice-tray__math__buttons {
+		& > :nth-child(-n + 2):not(:hover) {
+			border-right-color: transparent;
+		}
+	}
+
+	input[type="text"],
+	button {
+		color: var(--color-light-5);
+		font-weight: normal;
+		font-size: var(--font-size-16);
+		font-family: var(--font-pirate);
+	}
+
+	.dice-tray__stacked {
+		.dice-tray__advantage {
+			border-bottom-color: transparent;
+		}
+	}
+
+	.dice-tray__roll {
+		margin-left: 0.2rem;
+		padding-inline: 4px;
+	}
+}
+
+/* *** *** */

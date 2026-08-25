@@ -2,22 +2,34 @@
 	"id": "narrative-ui",
 	"title": "Narrative UI",
 	"description": "A neat UI theme for your favorite virtual tabletop.",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"compatibility": {
 		"minimum": "14",
 		"verified": "14.367"
 	},
 	"relationships": {
+		"systems": [
+			{
+				"id": "dnd5e",
+				"type": "system",
+				"compatibility": {
+					"verified": "5.3.3"
+				}
+			}
+		],
 		"requires": [
 			{
 				"id": "lib-wrapper",
 				"type": "module"
 			}
 		],
-		"systems": [
+		"recommends": [
 			{
-				"id": "dnd5e",
-				"type": "system"
+				"id": "dice-calculator",
+				"type": "module",
+				"compatibility": {
+					"verified": "4.0.5"
+				}
 			}
 		]
 	},
@@ -48,7 +60,8 @@
 		"styles/context-menu.css",
 		"styles/hotbar.css",
 		"styles/dnd5e.css",
-		"styles/form.css"
+		"styles/form.css",
+		"styles/dice-tray.css"
 	],
 	"flags": {
 		"hotReload": {

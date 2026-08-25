@@ -1,11 +1,9 @@
 /* *** Hotbar *** */
 
 #hotbar {
-	--placeholder-color: var(--color-light-5);
-
 	.slot > .key {
 		padding-right: 0;
-		color: var(--placeholder-color);
+		color: var(--color-light-5);
 		font-family: var(--font-pirate);
 	}
 
@@ -36,7 +34,7 @@
 		height: auto;
 
 		.ui-control {
-			--control-icon-color: var(--placeholder-color);
+			--control-icon-color: var(--color-light-5);
 
 			&::before {
 				font-size: var(--font-size-12);
@@ -44,7 +42,7 @@
 		}
 
 		.hotbar-page-number {
-			color: var(--placeholder-color);
+			color: var(--color-light-5);
 			font-family: var(--font-pirate);
 			text-shadow: 1px 1px 1px var(--color-cool-5-90);
 		}
