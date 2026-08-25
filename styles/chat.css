@@ -115,6 +115,10 @@
 	flex-shrink: 0;
 }
 
+.dice-tooltip .dice-rolls .roll.d6 {
+	background-image: var(--narrative-ui-d6-icon);
+}
+
 /* *** ***  */
 
 /* *** Right chat control buttons ***  */
@@ -153,15 +157,27 @@
 	width: 100%;
 }
 
-.prosemirror .menu-container,
-prose-mirror .menu-container {
-	flex: 0 0 32px;
+.prosemirror.chat-input,
+prose-mirror.chat-input {
+	.menu-container {
+		flex: 0 0 32px;
+	}
+
+	menu.editor-menu {
+		--menu-padding: 2px;
+
+		gap: 0;
+		/* border: 1px solid var(--color-light-6); */
+		border-radius: 6px;
+
+		.pm-dropdown.format {
+			min-width: auto;
+		}
+	}
 }
 
-.chat-sidebar:not(#chat-popout) .editor-menu,
-#chat-notifications .editor-menu {
-	justify-content: center;
-	padding-block: 2px;
+#chat-popout .editor-menu {
+	border-radius: 0;
 }
 
 .editor-container {
@@ -174,7 +190,3 @@ prose-mirror .menu-container {
 }
 
 /* *** ***  */
-
-.dice-tooltip .dice-rolls .roll.d6 {
-	background-image: var(--narrative-ui-d6-icon);
-}
