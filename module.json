@@ -47,7 +47,8 @@
 		"styles/sidebar.css",
 		"styles/context-menu.css",
 		"styles/hotbar.css",
-		"styles/dnd5e.css"
+		"styles/dnd5e.css",
+		"styles/form.css"
 	],
 	"flags": {
 		"hotReload": {

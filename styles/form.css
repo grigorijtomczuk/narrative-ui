@@ -1,0 +1,6 @@
+.standard-form .form-group {
+	& > label,
+	& > span.label {
+		line-height: 1.2;
+	}
+}
